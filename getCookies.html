@@ -2,9 +2,164 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>提交记忆</title>
+
+<style type="text/css">
+.content{
+	margin:100px 100px ;/*
+	margin-left: 100px;
+	margin-right: 100px;*/
+	height:90px;
+
+	/*widows:300px;*/
+	text-align: center;
+	background: #DCDCDC;
+	overflow:hidden;
+}
+.list{
+	
+	text-align:center;
+	margin:20px;
+}
+.select1{
+	padding-left: 20px;
+	font-size: 16px;
+}
+.selectclass{
+	height: 40px;
+	width:130px;
+	
+	font-size: 16px;
+}
+.buttonclass{
+	
+	height: 40px;
+	width: 90px;
+	background-color:#4876FF;
+	border: none;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    
+}
+</style>
+
 </head>
+
+
 <body>
+
+<div class="content">
+	<table class="list">
+		<form action="file:///D:/Git/myself/getCookies.html" id="myForm">
+		<tr>
+			<td class="select1">
+
+				<span>选项1 ：</span>
+				<select  class="selectclass" name="a" id="a" >
+					
+					<option value disabled selected style=" display:none" >请选择</option>
+					<option value="111">111</option>
+					<option value="222">222</option>
+					<option value="333">333</option>
+				</select>
+				
+			</td>
+			<td class="select1">
+				<span>选项2 ：</span>
+				<select  class="selectclass" name="b" id="b">
+					
+					<option value disabled selected style=" display:none" >请选择</option>
+					<option value="111">111</option>
+					<option value="222">222</option>
+					<option value="333">333</option>
+				</select>
+				
+			</td>
+			
+			<td class="select1">
+				
+				<!-- <input type="button" class="buttonclass" onclick="setsubmit()" value="提交"> -->
+				<input type="button" class="buttonclass" onclick="setc()" value="aaaa">
+
+				
+				<!-- <button class="buttonclass" onclick="setsubmit()"></button> -->
+
+			</td>
+		</tr>
+	</form>
+	</table>
+</div>
+
+
+<script type="text/javascript">
+	
+
+	function setc(){
+		
+		var username = "aaa";
+		alert(username);
+		document.cookie = "name=" + username;
+
+	}
+
+
+	function setsubmit(){
+		
+		//禁止空提交
+		var a=document.getElementById("a");
+		var b=document.getElementById("b");
+		
+		// var but=document.getElementsByTypeName("select");
+		if(a.value==""){
+			alert("请选择选项1");
+		}
+		if(b.value==""){
+			alert("请选择选项2");
+		}
+		else{
+			var exp = new Date();
+    		exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+			document.cookie = "list = 0";
+
+			//提交表单
+			// var list=document.getElementById("myForm");
+			// document.write(list.innerHTML);
+			var list=document.getElementsByTagName("select");
+			var strcookies = new Array();
+			for(var i=0;i<list.length;i++){
+
+			strcookies[i] = list[i].id + "=" + list[i].value ;
+			
+			}	
+		
+		// document.cookie=list;
+	}
+
+
+
+//set get Cookie
+// function setCookie(name, value) {
+//     var Days = 30;
+//     var exp = new Date();
+//     exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+//     document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+// }
+// function getCookie(name) {
+//     var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+//     if (arr = document.cookie.match(reg))
+//         return unescape(arr[2]);
+//     else
+//         return null;
+// }
+
+	}
+</script>
+
+
+
 	
 </body>
 </html>
