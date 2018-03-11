@@ -5,6 +5,8 @@
 	<title>删除文件夹</title>
 </head>
 
+<script src="jquery-3.3.1.min.js"></script>	
+
 <style type="text/css">
 .content{
 	
@@ -53,7 +55,7 @@
 </style>
 <body>
 	<div class="content">
-		
+		<form  id="myfm" method="post">
 		<table class="list">
 		<tr>
 			
@@ -71,12 +73,44 @@
 			</td>
 			<td class="fileinput">
 			
-				<input type="button" class="buttonclass" onclick="setsubmit()" value="提交">
+				<input type="button" class="buttonclass" id="but1"  value="提交">
 			
 			</td>
 		</tr>
 		</table>
+		</form>
 	</div>
+
+<script type="text/javascript">
+	// $('#btn1').click(function(){ 
+ //            $.ajax({
+ //                cache:true,//保留缓存数据
+ //                type:"POST",//为post请求
+ //                url:"myfm",//这是我在后台接受数据的文件名
+ //                data:$('#form').serialize(),//将该表单序列化
+ //                async:false,//设置成true，这标志着在请求开始后，其他代码依然能够执行。如果把这个选项设置成false，这意味着所有的请求都不再是异步的了，这也会导致浏览器被锁死
+ //                error:function(request){//请求失败之后的操作
+ //                    return;
+ //                },
+ //                success:function(data){//请求成功之后的操作
+ //                    console.log("success");
+ //                }
+ //            });
+ //        })
+ $.ajax({  
+                type: "POST",  
+                url:"",  
+                data:$('#myfm').serialize(),// 序列化表单值  
+                async: false,  
+                error: function(request) {  
+                    alert("Connection error");  
+                },  
+                success: function(data) {  
+                    alert("success"); 
+                }  
+            }); 
+</script>
+
 
 </body>
 </html>
